@@ -40,3 +40,10 @@ You can preview the production build with `npm run preview`.
 =======
 
 >>>>>>> README.md
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/kehach07/Order.git
+git remote -v
+git branch -M main
+git push -u origin main
