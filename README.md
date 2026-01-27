@@ -1,49 +1,21 @@
-<<<<<<< README.md
-# sv
+# SV – Svelte Project
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A modern Svelte project scaffolded using [`sv`](https://github.com/sveltejs/cli).
 
-## Creating a project
+This repository contains the initial setup required to start developing, building, and deploying a Svelte application.
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
+
+## 🚀 Getting Started
+
+### Create a New Project
+
+If you’re seeing this repository, the project has already been created.  
+For reference, a new Svelte project can be created using:
 
 ```sh
-# create a new project in the current directory
+# Create a new project in the current directory
 npx sv create
 
-# create a new project in my-app
+# Create a new project in a specific folder
 npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-=======
-
->>>>>>> README.md
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/kehach07/Order.git
-git remote -v
-git branch -M main
-git push -u origin main
