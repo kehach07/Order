@@ -46,15 +46,17 @@ function createAuthStore() {
       return res;
     },
 
-    /* ---------- SIGNIN ---------- */
+    /* ---------- SIGNIN (🔥 MAIN FIX) ---------- */
     signin: async (payload: { email: string; password: string }) => {
       update((s) => ({ ...s, loading: true, error: null }));
 
       const data = await signinService(payload);
 
-      // ✅ STORE JWT
-      localStorage.setItem("access", data.access);
-      localStorage.setItem("refresh", data.refresh);
+      // ✅ STORE KEYCLOAK TOKENS
+      localStorage.setItem("kc_access_token", data.access_token);
+      localStorage.setItem("kc_refresh_token", data.refresh_token);
+
+      // ✅ STORE USER
       localStorage.setItem("user", JSON.stringify(data.user));
 
       update((s) => ({
@@ -68,8 +70,8 @@ function createAuthStore() {
 
     /* ---------- LOAD PROFILE ---------- */
     loadProfile: async () => {
-      const access = localStorage.getItem("access");
-      if (!access) throw new Error("No access token");
+      const token = localStorage.getItem("kc_access_token");
+      if (!token) throw new Error("No access token");
 
       update((s) => ({ ...s, loading: true }));
 
@@ -86,7 +88,7 @@ function createAuthStore() {
       return data;
     },
 
-    /* ---------- UPDATE PROFILE (✅ FIXED) ---------- */
+    /* ---------- UPDATE PROFILE ---------- */
     updateProfile: async (payload: {
       full_name: string;
       company: string;
@@ -110,7 +112,9 @@ function createAuthStore() {
     /* ---------- HYDRATE ---------- */
     hydrate: () => {
       const user = localStorage.getItem("user");
-      if (user) {
+      const token = localStorage.getItem("kc_access_token");
+
+      if (user && token) {
         set({
           user: JSON.parse(user),
           loading: false,
@@ -123,6 +127,7 @@ function createAuthStore() {
     logout: () => {
       localStorage.clear();
       set(initialState);
+      window.location.href = "/signin";
     },
   };
 }
