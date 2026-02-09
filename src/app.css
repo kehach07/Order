@@ -50,6 +50,26 @@
     --border: 222 47% 20%;
     --input: 222 47% 20%;
   }
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+  }
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+  }
 }
 
 /* =========================
@@ -116,6 +136,13 @@
       transform: translateY(0);
     }
   }
+}
+.text-primary-foreground {
+  color: white !important;
+}
+
+.text-sidebar-foreground {
+  color: white !important;
 }
 .text-primary-foreground {
   color: white !important;
