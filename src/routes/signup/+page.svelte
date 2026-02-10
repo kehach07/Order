@@ -109,7 +109,7 @@
           </div>
         </div>
 
-        <!-- Company -->
+        <!-- Company 
         <div>
           <label class="label">Company Name</label>
           <div class="field">
@@ -117,8 +117,8 @@
             <input bind:value={formData.company} placeholder="Acme Inc." />
           </div>
         </div>
-
-        <!-- GST -->
+               -->
+        <!-- GST 
         <div>
           <label class="label">GST Number</label>
           <div class="field">
@@ -131,7 +131,7 @@
               }
             />
           </div>
-        </div>
+        </div>-->
 
         <!-- Email -->
         <div>
