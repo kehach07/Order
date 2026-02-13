@@ -36,7 +36,7 @@ http://localhost:5173
 npm run build
 
 
-Preview the production build locally:
+Preview the production build locally:   
 
 npm run preview
 
