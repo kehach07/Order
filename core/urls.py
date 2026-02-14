@@ -14,5 +14,12 @@ urlpatterns = [
     path("orders/", OrderListCreateAPI.as_view(), name="orders"),
     
     path("dashboard/", DashboardAPI.as_view(), name="dashboard"),
+    
+    path("addresses/", AddressListCreateAPI.as_view(), name="addresses"),
+    path("addresses/<int:pk>/", AddressUpdateAPI.as_view(), name="address-update"),
+
+    path("orders/", OrderListCreateAPI.as_view(), name="orders"),
+    
+    path("dashboard/", DashboardAPI.as_view(), name="dashboard"),
 ]
 
