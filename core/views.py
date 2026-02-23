@@ -260,3 +260,24 @@ class DashboardAPI(APIView):
                 orders.order_by("-created_at")[:5], many=True
             ).data,
         })
+class DashboardAPI(APIView):
+    authentication_classes = [KeycloakAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        print("USER:", request.user)
+        print("AUTH:", request.auth)
+        print("IS AUTH:", request.user.is_authenticated)
+
+        orders = Order.objects.filter(user=request.user)
+
+        return Response({
+            "total_orders": orders.count(),
+            "active_orders": orders.filter(status="active").count(),
+            "completed_orders": orders.filter(status="completed").count(),
+            "cancelled_orders": orders.filter(status="cancelled").count(),
+            "total_amount": orders.aggregate(Sum("net_amount"))["net_amount__sum"] or 0,
+            "recent_orders": OrderListSerializer(
+                orders.order_by("-created_at")[:5], many=True
+            ).data,
+        })
